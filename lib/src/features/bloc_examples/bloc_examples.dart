@@ -12,6 +12,14 @@ class BlocExemple extends StatelessWidget {
         title: const Text('Bloc Exemples'),
       ),
       body: BlocListener<ExampleBloc, ExampleState>(
+        listenWhen: (previous, current) {
+          if (previous is ExampleStateInitial && current is ExampleStateData) {
+            if (current.names.length > 2) {
+              return true;
+            }
+          }
+          return false;
+        },
         listener: (context, state) {
           if (state is ExampleStateData) {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -62,6 +70,11 @@ class BlocExemple extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final name = names[index];
                   return ListTile(
+                    onTap: () {
+                      context
+                          .read<ExampleBloc>()
+                          .add(ExampleRemoveNameEvent(name: name));
+                    },
                     title: Text(name),
                   );
                 },
