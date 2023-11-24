@@ -9,12 +9,23 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('App Bloc'),
       ),
-      body: Center(
-        child: ElevatedButton(
-            child: const Text('Bloc Examples'),
-            onPressed: () {
-              Navigator.of(context).pushNamed('/bloc/example');
-            }),
+      body: Column(
+        children: [
+          Center(
+            child: ElevatedButton(
+                child: const Text('Bloc Freezed'),
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/bloc/example/freezed');
+                }),
+          ),
+          Center(
+            child: ElevatedButton(
+                child: const Text('Bloc Examples'),
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/bloc/example');
+                }),
+          ),
+        ],
       ),
     );
   }
