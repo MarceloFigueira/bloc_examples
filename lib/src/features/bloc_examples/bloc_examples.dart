@@ -70,13 +70,20 @@ class BlocExemple extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final name = names[index];
                   return ListTile(
-                    onTap: () {
-                      context
-                          .read<ExampleBloc>()
-                          .add(ExampleRemoveNameEvent(name: name));
-                    },
-                    title: Text(name),
-                  );
+                      onTap: () {
+                        context
+                            .read<ExampleBloc>()
+                            .add(ExampleRemoveNameEvent(name: name));
+                      },
+                      title: Text(name),
+                      trailing: IconButton(
+                        onPressed: () {
+                          context
+                              .read<ExampleBloc>()
+                              .add(ExampleAddNameEvent(name: name));
+                        },
+                        icon: Icon(Icons.add),
+                      ));
                 },
               );
             }),
