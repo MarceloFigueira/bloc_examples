@@ -2,6 +2,7 @@ import 'package:bloc_examples/src/features/bloc_examples/bloc/example_bloc.dart'
 import 'package:bloc_examples/src/features/bloc_examples/bloc_examples.dart';
 import 'package:bloc_examples/src/features/bloc_examples/bloc_freezed/example_freezed_bloc.dart';
 import 'package:bloc_examples/src/features/bloc_examples/bloc_freezed_examples.dart';
+import 'package:bloc_examples/src/features/contacts/list/contacts_list_page.dart';
 import 'package:bloc_examples/src/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
               create: (context) => ExampleFreezedBloc()
                 ..add(const ExampleFreezedEvent.findNames()),
               child: const BlocFreezedExample(),
-            )
+            ),
+        '/contacts/list': (context) => const ContactListPage()
       },
     );
   }

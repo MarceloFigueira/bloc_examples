@@ -25,6 +25,13 @@ class HomePage extends StatelessWidget {
                   Navigator.of(context).pushNamed('/bloc/example');
                 }),
           ),
+          Center(
+            child: ElevatedButton(
+                child: const Text('CRUD Bloc'),
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/contacts/list');
+                }),
+          ),
         ],
       ),
     );
